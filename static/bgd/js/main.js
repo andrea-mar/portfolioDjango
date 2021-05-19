@@ -59,6 +59,7 @@ var sidebarVisible = false;
 	     		e.preventDefault();
 		    	
 		    	var currentNavItem = $(this);
+				console.log(currentNavItem);
 		    	changePage(currentNavItem);
 		    	
 		    	setupCarousel();
@@ -68,6 +69,26 @@ var sidebarVisible = false;
 		    	$("#tmSideBar").removeClass("show");
 		    });	    
   		}
+
+		
+		// set up home page intro links
+		function setupHomeLinks() {
+			// Add Event Listener to each home link item
+			$(".home .page").click(function(e){
+				e.preventDefault();
+			   
+			   var currentNavItem = $(this);
+			   console.log(currentNavItem);
+			   changePage(currentNavItem);
+			   
+			   setupCarousel();
+			   setupFooter();
+
+			   // Hide the nav on mobile
+			   $("#tmSideBar").removeClass("show");
+		   });	 
+		}
+		
 
   		function changePage(currentNavItem) {
   			// Update Nav items
@@ -153,6 +174,7 @@ var sidebarVisible = false;
 		     	// Setup Carousel, Nav, and Nav Toggle
 			    setupCarousel();
 			    setupNav();
+				setupHomeLinks();
 			    setupNavToggle();
 			    setupFooter();
 
@@ -163,3 +185,6 @@ var sidebarVisible = false;
 			    });
       		}	      	
 		});
+
+
+		
